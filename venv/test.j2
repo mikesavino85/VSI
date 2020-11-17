@@ -1,0 +1,58 @@
+<style type="text/css">
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Light'), local('OpenSans-Light'), url(http://fonts.gstatic.com/s/opensans/v13/DXI1ORHCpsQm3Vp6mXoaTa-j2U0lmluP9RWlSytm3ho.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+}
+.body {
+    width: 90%;
+    margin: auto;
+    font-family: 'Open Sans', 'Helvetica', sans-serif;
+    font-size: 14pt;
+    color: #075D72;
+}
+a:link { color: #B40057; text-decoration: underline}
+a:visited { color: #542A95; text-decoration: none}
+a:hover { color: #B40057; background-color:#C4FFF9; text-decoration: underline }
+</style>
+
+<div class="body">
+Guest:
+<br>
+{{    guest['firstName']    }} {{    guest['lastName']    }}
+<br>
+{{    guest['addresses'][0]['street1']    }} {{    guest['addresses'][0]['street2']    }}
+<br>
+{{    guest['addresses'][0]['city']    }}, {{    guest['addresses'][0]['state']    }} {{    guest['addresses'][0]['zip']    }}
+<br><br>
+Reservation Number:    {{   resNum    }}
+<br><br>
+Arrival: {{    reservationDates['startDate']    }}
+<br>
+Departure: {{    reservationDates['endDate']    }}
+<br>
+Nights: {{    stayLen    }}
+
+<br><br>
+THANK YOU:   We appreciate your booking your reservation with us through AirBnB.
+<br><br>
+PLEASE VERIFY THAT YOUR ARRIVAL AND DEPARTURES DATES ARE CORRECT.
+<br><br>
+CANCELLATION AND REFUND POLICY:   A cancellation made more than 45 days prior to your originally scheduled arrival date (60 days prior for holiday periods) will receive a full refund, less a $50 cancellation fee. There is no refund for any reason for cancellation made less than 45 days (less than 60 days for holiday periods) prior to your original arrival date. We reserve the right to move you to a comparable property if the property listed above becomes unavailable. This rental is subject to Vacation Station’s Guest Policy, as available on our website and in our offices upon request.
+<br><br>
+SECURITY DEPOSIT:   As renters, you assume all responsibility for any damage that occurs to the property and adjacent common areas as a result of your rental. For Security Deposit, your credit card will be pre-authorized one or two days prior to your arrival. Debit cards are not recommended for use as Security Deposits. Your entire security deposit will be forfeited if the number of persons on the premises at any time exceeds the maximum occupancy.
+<br><br>
+PLEASE REPORT ANY DAMAGE OR NEEDED REPAIRS SO THAT WE CAN KEEP THE PROPERTY IN GOOD CONDITION.
+<br><br>
+ABSOLUTELY NO SMOKING. NO PETS ARE ALLOWED, inside or out unless prior arrangements are made. Motor homes are not permitted. Please contact us to make special arrangements for boat/jet ski parking.
+<br><br>
+ONLY THE CREDIT CARDHOLDER IS ALLOWED TO CHECK IN AND PICK UP THE KEYS.
+<br><br>
+PLEASE NOTE THAT PARKING IS LIMITED. Parking for 2 Vehicles Only.
+
+<p>
+</div>
+
+<p><br><br>
