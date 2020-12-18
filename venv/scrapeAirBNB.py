@@ -7,7 +7,8 @@ import datetime
 from datetime import date
 
 
-driver = webdriver.Chrome("C:/Users/Don/Desktop/path folder/chromedriver_win32/chromedriver.exe")
+# driver = webdriver.Chrome("C:/Users/Don/Desktop/path folder/chromedriver_win32/chromedriver.exe")
+driver = webdriver.Chrome()
 driver.get("https://www.airbnb.com/login")
 driver.maximize_window()
 
