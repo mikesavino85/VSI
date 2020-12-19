@@ -1,2 +1,4 @@
 pywin32
 xlsxwriter
+pyodbc
+sqlalchemy

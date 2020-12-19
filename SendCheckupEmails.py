@@ -9,17 +9,34 @@ from datetime import timedelta
 import win32com.client
 import xlsxwriter
 from win32com.client import Dispatch
+import pyodbc
+import json
+import sqlalchemy
+from sqlalchemy import create_engine
+
+
+
+
+SQLEngine = create_engine("mssql+pyodbc://PropertyPlus:propertyplus@192.168.1.10:1433/VSIWebsite_AWS?driver=SQL+Server+Native+Client+10.0")
+
+
 
 today = datetime.datetime.today()
 twoWeeksAgo = datetime.datetime.today() - timedelta(days=7)
 rightNow = datetime.datetime.now()
-
 
 outlook = win32com.client.Dispatch("Outlook.Application").GetNamespace("MAPI")
 accounts = win32com.client.Dispatch("Outlook.Application").Session.Accounts
 inbox = outlook.Folders["airbnb@vacationstation.com"]
 airbnbFolder = inbox.Folders["Inbox"]
 messages = airbnbFolder.Items
+
+
+def api_prope():
+    conn = SQLEngine.connect()
+    propeTable = conn.execute("select prop_id, name, address1 from propertyplus.prope where propdead = '0'")
+
+    return json.dumps([dict(r) for r in propeTable])
 
 
 messages = messages.Restrict("[ReceivedTime] > \'" + twoWeeksAgo.strftime('%m/%d/%Y %H:%M %p') +"\'")
