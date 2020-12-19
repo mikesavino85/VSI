@@ -2,3 +2,4 @@ pywin32
 xlsxwriter
 pyodbc
 sqlalchemy
+jinja2
