@@ -28,7 +28,7 @@ today = datetime.datetime.today()
 twoWeeksAgo = datetime.datetime.today() - timedelta(days=7)
 rightNow = datetime.datetime.now()
 
-templateLoader = jinja2.FileSystemLoader(searchpath=".")
+templateLoader = jinja2.FileSystemLoader(searchpath="./Templates")
 templateEnv = jinja2.Environment(loader=templateLoader)
 
 s = smtplib.SMTP(host='maila4.newtekwebhosting.com', port=587)
@@ -37,7 +37,7 @@ s.login('robot@vacationstation.com', 'Bike!0280')
 
 
 conn = SQLEngine.connect()
-quoteTable = conn.execute("select convert(varchar(8000), rstartDate, 1) startDate, "
+quoteTable = conn.execute("select top 1 convert(varchar(8000), rstartDate, 1) startDate, "
                           "convert(varchar(8000), renddate, 1) enddate, "
                           "q.custcode custCode, "
                           "q.name, p.prop_id propcode, c.email  "
@@ -57,13 +57,14 @@ resInfoJSON = json.loads(resInfo)
 # print(resInfoJSON[1])
 
 for guestContact in resInfoJSON:
-    print(guestContact['startDate'])
+    # print(guestContact['startDate'])
     msg = MIMEMultipart('alternative')
     msg['Subject'] = "Hello, thank you for staying with Vacation Station"
     msg['From'] = "robot@vacationstation.com"
-    msg['To'] = "kathleen.savino@gmail.com"
+    msg['To'] = "mikesavino85@gmail.com"
 
     templ = templateEnv.get_template("checkupEmail.j2")
+    # templ = templateEnv.get_template("baseEmail.j2")
 
     htmlMessage = templ.render(guestContact=guestContact)
     msg.attach(MIMEText(htmlMessage, 'html'))

@@ -1,0 +1,10 @@
+{% extends "baseEmail.j2" %}
+<body>
+    <div id = "content">
+        {% block content %}
+        <br>
+        How is your wonderful stay at {{    guestContact['propcode']    }}?
+        <br>
+        {% endblock %}
+    </div>
+</body>
