@@ -1,0 +1,14 @@
+{% extends "baseEmail.j2" %}
+
+<body>
+    <div id = "content">
+        {% block content %}
+        <br>
+        Thanks for choosing to stay with us at Vacation Station. We’re excited to welcome you to {{    guestContact['propcode']    }} in Incline Village, Lake Tahoe on {{    guestContact['startDate']    }}. If you have any questions between now and your arrival, please email us at Travel@VacationStation.com, or call us directly at 775-831-3664.
+        <br><br>Thanks again for choosing Vacation Station, and we can't wait to accommodate your stay!
+
+        {% endblock %}
+    </div>
+</body>
+
+

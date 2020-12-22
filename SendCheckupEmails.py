@@ -61,9 +61,9 @@ for guestContact in resInfoJSON:
     msg = MIMEMultipart('alternative')
     msg['Subject'] = "Hello, thank you for staying with Vacation Station"
     msg['From'] = "robot@vacationstation.com"
-    msg['To'] = "mikesavino85@gmail.com"
+    msg['To'] = "mikesavino85@gmail.com, mike@vacationstation.com, robot@vacationstation.com"
 
-    templ = templateEnv.get_template("checkupEmail.j2")
+    templ = templateEnv.get_template("confirmation1.j2")
     # templ = templateEnv.get_template("baseEmail.j2")
 
     htmlMessage = templ.render(guestContact=guestContact)
