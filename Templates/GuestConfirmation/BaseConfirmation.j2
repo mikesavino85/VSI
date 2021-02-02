@@ -1,0 +1,115 @@
+<link href="/Static/CSS/templateStyles.css" rel="stylesheet">
+
+<body>
+    <div id="greeting" class="body">
+        Thank you for choosing Vacation Station:
+        <br>
+        {{    resData['name']    }}
+        <br>
+    </div>
+
+    <div id="main" class="body">
+        {% block GuestRegistration %} {% endblock %}
+        {% if resData.booktype == 'CONF' %}
+          {% block chargesPayments %} {% endblock %}
+          {% block payInformation %} {% endblock %}
+        {% endif %}
+        {% block guestInformation %} {% endblock %}
+        {% for blockName in notificationInfo %}
+            {% if blockName.propertyNotificationCode == 'A1'%}
+              {% block A1 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'A2'%}
+              {% block A2 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'A3'%}
+              {% block A3 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'A4'%}
+              {% block A4 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'B1'%}
+              {% block B1 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'B2'%}
+              {% block B2 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'C1'%}
+              {% block C1 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'C2'%}
+              {% block C2 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'C3'%}
+              {% block C3 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'D1'%}
+              {% block D1 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'D2'%}
+              {% block D2 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'D3'%}
+              {% block D3 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'D4'%}
+              {% block D4 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'E1'%}
+              {% block E1 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'E2'%}
+              {% block E2 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'F1'%}
+              {% block F1 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'F2'%}
+              {% block F2 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'G1'%}
+              {% block G1 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'H1'%}
+              {% block H1 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'H2'%}
+              {% block H2 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'H3'%}
+              {% block H3 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'H4'%}
+              {% block H4 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'H5'%}
+              {% block H5 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'I1'%}
+              {% block I1 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'I2'%}
+              {% block I2 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'I3'%}
+              {% block I3 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'I4'%}
+              {% block I4 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'I5'%}
+              {% block I5 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'I6'%}
+              {% block I6 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'I7'%}
+              {% block I7 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'J1'%}
+              {% block J1 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'J2'%}
+              {% block J2 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'J3'%}
+              {% block J3 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'J4'%}
+              {% block J4 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'J5'%}
+              {% block J5 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'J6'%}
+              {% block J6 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'K1'%}
+              {% block K1 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'K2'%}
+              {% block K2 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'L1'%}
+              {% block L1 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'L2'%}
+              {% block L2 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'M1'%}
+              {% block M1 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'M2'%}
+              {% block M2 %} {% endblock %}
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <div id="footer" class="body">
+        <br><br>
+        We hope you have a wonderful time. If you have any questions, please contact us at (775) 831-3664. Our email is Travel@VacationStation.com.
+        <br>
+        Thanks,
+        <br>
+        Vacation Station
+    </div>
+</body>

@@ -74,27 +74,3 @@ for guestContact in resInfoJSON:
     # body = html.encode("utf8")
     s.send_message(msg)
 exit()
-
-messages = messages.Restrict("[ReceivedTime] > \'" + twoWeeksAgo.strftime('%m/%d/%Y %H:%M %p') +"\'")
-
-listEmailSS = xlsxwriter.Workbook('F:\\SendCheckupEmails\\'+str(today.month) + '.' + str(today.day) + '.' + str(today.year) + '.'+str(rightNow.hour) + '.'+str(rightNow.minute) + '.'+str(rightNow.second) + '.xlsx')
-listEmailSheet = listEmailSS.add_worksheet(str(today.month) + '.' + str(today.day)+'.'+str(today.year))
-row = 0
-col = 0
-for message in messages:
-    # if row == 10:
-    #     break
-    if "airbnb.com" in message.SenderEmailAddress and message.subject.startswith('Pending: Reservation Request at') :
-
-        print(str(message.Subject))
-
-        propertyName = str(str(message.Subject).split(" for ")[1])
-        listEmailSheet.write(row, col, propertyName)
-        listEmailSheet.write(row, col+1, str(message.receivedTime.date()))
-        listEmailSheet.write(row, col+2, str(message.body))
-        forwardMsg = message.Forward()
-        forwardMsg.To = 'mike@vacationstation.com; don@vacationstation.com'
-        forwardMsg.Send()
-        col = 0
-        row += 1
-listEmailSS.close()
