@@ -1,5 +1,28 @@
 {% extends "BaseConfirmation.j2" %}
-
+{% block Header %}
+<div>
+    <p>
+    Hello {{    resData['name']    }},
+    <br>
+    Thank you for booking your upcoming Tahoe vacation rental with us. We have you staying at {{ resData['address1'] }} arriving {{ resData['startDay'] }}, {{ resData['startDate'] }} and departing {{ resData['endDay'] }}, {{ resData['enddate'] }}. Please take a moment now to confirm your arrival and depature dates.
+    <br>
+    This email contains specific information to your reserved property and an attached form <strong>which must be printed out, signed and emailed back to us. You must come to the office to collect keys!</strong> <a href="https://www.google.com/maps/dir/Your+Location/39.2503563767773, -119.94878339029103">Map to Vacation Station</a>.
+    </p>
+    <br>
+    <p>Please let us know if you have any questions or might need assistance. Our office is open 7 days a week.</p>
+    <br>
+    <p>See you soon!<p>
+</div>
+{% endblock %}
+{% block Footer %}
+<tr><td>&nbsp;</td></tr>
+<tr><td colspan="2">VACATION STATION, Inc.</td></tr>
+<tr><td colspan="2">930 Tahoe Boulevard, Suite 703</td></tr>
+<tr><td colspan="2">Incline Village, NV 89451</td></tr>
+<tr><td colspan="2"><a href="tel:7758313664">(775) 831-3664</a></td></tr>
+<tr><td colspan="2">http://vacationstation.com</td></tr>
+<tr><td colspan="2">travel@vacationstation.com</td></tr>
+{% endblock %}
 {% block GuestRegistration %}
 <div id="GuestRegistration">
  <br />
@@ -13,10 +36,10 @@
  <td>Guest: {{ resData['name'] }}</td><td>Reservation Number: {{ resData['quotenum'] }}</td>
  </tr>
  </tr>
- <td>{{ resData['custAddress1'] }}</td><td style="background-color: #27b84d; font-weight: bold;">Arrival Date: {{ resData['startDate'] }} {{ resData['startDay'] }}</td>
+ <td>{{ resData['custAddress1'] }}</td><td style="background-color: #3283a1; font-weight: bold;">Arrival Date: {{ resData['startDate'] }} {{ resData['startDay'] }}</td>
  </tr>
  <tr>
- <td>{{ resData['custCity'] }}, {{ resData['custState'] }} {{ resData['custZip'] }}</td><td style="background-color: #27b84d; font-weight: bold;">Departure Date: {{ resData['enddate'] }} {{ resData['endDay'] }}</td>
+ <td>{{ resData['custCity'] }}, {{ resData['custState'] }} {{ resData['custZip'] }}</td><td style="background-color: #3283a1; font-weight: bold;">Departure Date: {{ resData['enddate'] }} {{ resData['endDay'] }}</td>
  </tr>
  <tr>
  <td>Guest Phone: {{ resData['custPhone'] }}</td><td>Number of Nights: {{ resData['numofdays'] }}</td>
@@ -25,10 +48,10 @@
  <td>Guest Email: {{ resData['custEmail'] }}</td><td>Maximum Occupancy: {{ resData['numofsleeps'] }}</td>
  </tr>
  <tr>
- <td>Parking Limit: Parking for 2 Vehicles Only</td><td style="background-color: #27b84d; font-weight: bold;"> Property Address: {{ resData['address1'] }}</td>
+ <td>Parking Limit: Parking for 2 Vehicles Only</td><td style="background-color: #3283a1; font-weight: bold;"> Property Address: {{ resData['address1'] }}</td>
  </tr>
  <tr>
- <td>Today's Date: {{ resData['todayDate'] }}</td><td style="background-color: #27b84d; font-weight: bold;">Key Code: {{ resData['security'] }}</td>
+ <td>Today's Date: {{ resData['todayDate'] }}</td><td style="background-color: #3283a1; font-weight: bold;">Key Code: {{ resData['security'] }}</td>
  </tr>
  </tbody>
  </table>
@@ -66,45 +89,24 @@
  {% endfor %}
  </table>
 {% endblock %}
-{% block guestInformation %}
- <table>
- <tr>
- <td> PROPERTY RULES: As renters, you assume all responsibility for any damage that occurs to the property and adjacent areas as a result of your rental. You agree as follows: </td><td></td>
- </tr>
- <tr><td> NO PETS ARE ALLOWED</td><td style="text-align: left; background-color: #27b84d; white-space:pre;">[    ] INITIAL </td></tr>
- <tr><td> TRASH must be disposed properly per the enclosed instructions.</td><td style="text-align: left; background-color: #27b84d; white-space:pre;">[    ] INITIAL </td></tr>
- <tr><td> QUIET HOURS are after 9:00 pm and before 11:00 am.</td><td style="text-align: left; background-color: #27b84d; white-space:pre;">[    ] INITIAL </td></tr>
- <tr><td> NUMBER OF PERSONS present on the premises at any time must not exceed 7.</td><td style="text-align: left; background-color: #27b84d; white-space:pre;">[    ] INITIAL </td></tr>
- <tr><td> NO SMOKING of any nature is allowed inside or outside the unit.</td><td style="text-align: left; background-color: #27b84d; white-space:pre;">[    ] INITIAL </td></tr>
- <tr><td> PLEASE REMOVE YOUR SHOES and treat carpets with care.</td><td style="text-align: left; background-color: #27b84d; white-space:pre;">[    ] INITIAL </td></tr>
- <tr><td> SAFETY PRACTICES: Your group must follow our recommended Safety Practices, including wearing a mask, maintaining 6 feet social distance, frequent hand washing, and not travelling when ill or have concern about possible infection. Parties and events are prohibited. If any member of your group fails to comply with these safety practices, your stay will be cancelled without refund.</td><td style="text-align: left; background-color: #27b84d; white-space:pre;">[    ] INITIAL </td></tr>
- <tr><td> CLEANING: We use experienced housekeepers to clean this property. We do not sanitize to medical-grade standards. You may notice residue from disinfectant spray on some surfaces. If you find items needing additional cleaning, please let us know immediately so that we can correct the issue.</td><td style="text-align: left; background-color: #27b84d; white-space:pre;">[    ] INITIAL </td></tr>
- <tr><td> PLEASE REPORT ANY DAMAGE OR NEEDED REPAIRS SO THAT WE CAN KEEP THE UNIT IN GOOD CONDITION.</td><td></td></tr>
- <tr><td> Guest was issued: 2 Keys 1 Parking Passes</td><td style="text-align: left; background-color: #27b84d; white-space:pre;">[    ] INITIAL </td></tr>
- <tr><td></td></tr>
- <tr><td> YOUR PAYMENTS ARE NON-REFUNDABLE. BY SIGNING, YOU ACKNOWLEDGE THAT YOU HAVE READ, UNDERSTAND AND AGREE TO THE ABOVE DESCRIBED TERMS, CONDITIONS AND CHARGES.</td><td></td></tr>
- <tr><td><br></td></tr>
- <tr><td style="text-align: left; background-color: #27b84d;"> X __________________________________ SIGNATURE ({{ resData['todayDate'] }}) </td></tr>
- <tr><td>VACATION STATION, Inc.</td><td></td></tr>
- <tr><td>930 Tahoe Boulevard, Suite 703</td><td>Travel@VacationStation.com or call 800-841-7443</td></tr>
- <tr><td>Incline Village, NV 89451</td><td>www.VacationStation.com Fax 775-832-4844</td></tr>
- </table>
-{% endblock %}
 
 {% block A1 %}
- <tr><td style="font-weight: bold;">To Use the Internet</td></tr>
- <tr><td>The network ID is: {{ resData['net'] }}</td></tr>
- <tr><td>The password is: {{ resData['pw'] }}</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td style="font-weight: bold;">To Use the Internet</td></tr>
+<tr><td>The network ID is: {{ resData['wifi'] }}</td></tr>
+<tr><td>The password is: {{ resData['pw'] }}</td></tr>
 {% endblock %}
 
 {% block A2 %}
+<tr><td>&nbsp;</td></tr>
 <tr><td style="font-weight: bold;">THIS PROPERTY IS NOT MANAGED BY VACATION STATION</td></tr>
 <tr><td>No information on amenities and services is available.</td></tr>
-<tr><td></td></tr>
+<tr><td>&nbsp;</td></tr>
 <tr><td style="font-weight: bold;">NO INFORMATION - PROPERTY NOT MANAGED BY VACATION STATION</td></tr>
 {% endblock %}
 
 {% block A3 %}
+<tr><td>&nbsp;</td></tr>
 <tr><td style="font-weight: bold;">To Use the Internet</td></tr>
 <tr><td>The network ID is: {{ resData['net'] }}</td></tr>
 <tr><td>The password is: {{ resData['pw'] }}</td></tr>
@@ -113,6 +115,7 @@
 {% endblock %}
 
 {% block A4 %}
+<tr><td>&nbsp;</td></tr>
 <tr><td style="font-weight: bold;">To Use the Internet</td></tr>
 <tr><td>The network ID is: {{ resData['net'] }}</td></tr>
 <tr><td>The password is: {{ resData['pw'] }}</td></tr>
@@ -121,48 +124,51 @@
 {% endblock %}
 
 {% block B1 %}
-<tr><td>Welcome</td></tr>
-<tr><td>Enclosed is a map with directions to your vacation rental home. Further details of the condo complex are shown on the back of the map.</td><tr>
-<tr><td></td></tr>
-<tr><td>Stay Safe!</td></tr>
-<tr><td>We want your stay to be safe and enjoyable, so here are a few things you need to know:</td></tr
-<tr><td></td></tr>
-<tr><td style="font-weight:bold; text-align:center;">IN CASE OF EMERGENCY, DIAL 9-1-1</td></tr>
-<tr><td></td></tr>
-<tr><td> * In case of fire or smoke, <strong>GET OUT, STAY OUT</strong> and <strong>CALL FOR HELP.</strong></td></tr>
-<tr><td> * Take a few minutes to familiarize yourself with this home. Plan an escape route, in case you might need to evacuate in an emergency.</td></tr>
-<tr><td> * Locate the fire extinguisher in case you need it. Do not attempt to fight a fire unless you are confident you can extinguish the fire safely. Instead, evacuate the home and call for help.</td></tr>
-<tr><td> * Do not disable the smoke detectors or CO detectors. Do let us know if they chirp or the alarm sounds so that we can investigate and correct the cause.</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td style="font-weight:bold;">Welcome</td></tr>
+<tr><td><a href="https://www.google.com/maps/dir/Your+Location/{{ resData['latitude'] }},{{ resData['longitude'] }}">This is a map with directions to your vacation rental home.</a> Further details of the condo complex are shown on the back of the map.</td><tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td>We want your stay to be <strong>safe and enjoyable</strong>, so here are a few things you need to know:</td></tr
+<tr><td>&nbsp;</td></tr>
+<tr><td style="font-weight:bold; text-align:center; font-size: 18pt; color:#a13932;">IN CASE OF EMERGENCY, DIAL 9-1-1</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td> &#9679; In case of fire or smoke, <strong>GET OUT, STAY OUT</strong> and <strong>CALL FOR HELP.</strong></td></tr>
+<tr><td> &#9679; Take a few minutes to familiarize yourself with this home. Plan an escape route, in case you might need to evacuate in an emergency.</td></tr>
+<tr><td> &#9679; Locate the fire extinguisher in case you need it. Do not attempt to fight a fire unless you are confident you can extinguish the fire safely. Instead, evacuate the home and call for help.</td></tr>
+<tr><td> &#9679; Do not disable the smoke detectors or CO detectors. Do let us know if they chirp or the alarm sounds so that we can investigate and correct the cause.</td></tr>
 {% endblock %}
 
 {% block B2 %}
+<tr><td>&nbsp;</td></tr>
 <tr><td>Welcome</td></tr>
-<tr><td>Enclosed is a map with directions to your vacation rental home.</td><tr>
-<tr><td></td></tr>
+<tr><td><a href="https://www.google.com/maps/dir/Your+Location/{{ resData['latitude'] }},{{ resData['longitude'] }}">This is a map with directions to your vacation rental home.</a></td><tr>
+<tr><td>&nbsp;</td></tr>
 <tr><td>Stay Safe!</td></tr>
 <tr><td>We want your stay to be safe and enjoyable, so here are a few things you need to know:</td></tr
-<tr><td></td></tr>
-<tr><td style="font-weight:bold; text-align:center;">IN CASE OF EMERGENCY, DIAL 9-1-1</td></tr>
-<tr><td></td></tr>
-<tr><td> * In case of fire or smoke, <strong>GET OUT, STAY OUT</strong> and <strong>CALL FOR HELP.</strong></td></tr>
-<tr><td> * Take a few minutes to familiarize yourself with this home. Plan an escape route, in case you might need to evacuate in an emergency.</td></tr>
-<tr><td> * Locate the fire extinguisher in case you need it. Do not attempt to fight a fire unless you are confident you can extinguish the fire safely. Instead, evacuate the home and call for help.</td></tr>
-<tr><td> * Do not disable the smoke detectors or CO detectors. Do let us know if they chirp or the alarm sounds so that we can investigate and correct the cause.</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td style="font-weight:bold; text-align:center; font-size: 18pt;color:#a13932;">IN CASE OF EMERGENCY, DIAL 9-1-1</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td> &#9679; In case of fire or smoke, <strong>GET OUT, STAY OUT</strong> and <strong>CALL FOR HELP.</strong></td></tr>
+<tr><td> &#9679; Take a few minutes to familiarize yourself with this home. Plan an escape route, in case you might need to evacuate in an emergency.</td></tr>
+<tr><td> &#9679; Locate the fire extinguisher in case you need it. Do not attempt to fight a fire unless you are confident you can extinguish the fire safely. Instead, evacuate the home and call for help.</td></tr>
+<tr><td> &#9679; Do not disable the smoke detectors or CO detectors. Do let us know if they chirp or the alarm sounds so that we can investigate and correct the cause.</td></tr>
 {% endblock %}
 
 {% block B1B2 %}
+<tr><td>&nbsp;</td></tr>
 <tr><td>Stay Safe!</td></tr>
 <tr><td>We want your stay to be safe and enjoyable, so here are a few things you need to know:</td></tr
-<tr><td></td></tr>
-<tr><td style="font-weight:bold; text-align:center;">IN CASE OF EMERGENCY, DIAL 9-1-1</td></tr>
-<tr><td></td></tr>
-<tr><td> * In case of fire or smoke, <strong>GET OUT, STAY OUT</strong> and <strong>CALL FOR HELP.</strong></td></tr>
-<tr><td> * Take a few minutes to familiarize yourself with this home. Plan an escape route, in case you might need to evacuate in an emergency.</td></tr>
-<tr><td> * Locate the fire extinguisher in case you need it. Do not attempt to fight a fire unless you are confident you can extinguish the fire safely. Instead, evacuate the home and call for help.</td></tr>
-<tr><td> * Do not disable the smoke detectors or CO detectors. Do let us know if they chirp or the alarm sounds so that we can investigate and correct the cause.</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td style="font-weight:bold; text-align:center; font-size: 18pt;color:#a13932;">IN CASE OF EMERGENCY, DIAL 9-1-1</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td> &#9679; In case of fire or smoke, <strong>GET OUT, STAY OUT</strong> and <strong>CALL FOR HELP.</strong></td></tr>
+<tr><td> &#9679; Take a few minutes to familiarize yourself with this home. Plan an escape route, in case you might need to evacuate in an emergency.</td></tr>
+<tr><td> &#9679; Locate the fire extinguisher in case you need it. Do not attempt to fight a fire unless you are confident you can extinguish the fire safely. Instead, evacuate the home and call for help.</td></tr>
+<tr><td> &#9679; Do not disable the smoke detectors or CO detectors. Do let us know if they chirp or the alarm sounds so that we can investigate and correct the cause.</td></tr>
 {% endblock %}
 
 {% block C1 %}
+<tr><td>&nbsp;</td></tr>
 <tr><td style="font-weight: bold;">Keys</td></tr>
 <tr><td>A set of keys to your property is enclosed. Please note that for security purposes</td></tr>
 <tr><td>THE NUMBER ON THE KEY TAG DOES NOT MATCH THE PROPERTY NUMBER</td></tr>
@@ -170,11 +176,13 @@
 {% endblock %}
 
 {% block C2 %}
+<tr><td>&nbsp;</td></tr>
 <tr><td style="font-weight: bold;">Key Code</td></tr>
 <tr><td>The entry key code is printed on the key tags provided to you.</td></tr>
 {% endblock %}
 
 {% block C3 %}
+<tr><td>&nbsp;</td></tr>
 <tr><td style="font-weight: bold;">Key Code</td></tr>
 <tr><td>To lock and unlock the entry door:</td></tr>
 <tr><td>Press the Schlage logo then 0 - 8 - 0 - 0</td></tr>
@@ -182,6 +190,7 @@
 {% endblock %}
 
 {% block D1 %}
+<tr><td>&nbsp;</td></tr>
 <tr><td style="font-weight: bold;">Guest Parking Permit</td></tr>
 <tr><td style="font-weight: bold;">PARKING ON THE STREET IS PROHIBITED THROUGHOUT INCLINE VILLAGE.</td></tr>
 <tr><td>Parking is limited to the number of parking spaces allotted for this property.</td></tr>
@@ -189,6 +198,7 @@
 {% endblock %}
 
 {% block D2 %}
+<tr><td>&nbsp;</td></tr>
 <tr><td style="font-weight: bold;">Guest Parking Permit</td></tr>
 <tr><td style="font-weight: bold;">PARKING ON THE STREET IS PROHIBITED THROUGHOUT INCLINE VILLAGE.</td></tr>
 <tr><td>Parking is limited to the number of parking spaces allotted for this property.</td></tr>
@@ -198,12 +208,14 @@
 {% endblock %}
 
 {% block D3 %}
+<tr><td>&nbsp;</td></tr>
 <tr><td style="font-weight: bold;">Parking Requirements</td></tr>
 <tr><td>PARKING IS LIMITED TO TWO VEHICLES at this property, including your visitors. Each vehicle must display the assigned parking pass hanging from your rear view mirror at all times during your stay. Remember to return the parking pass to the Vacation Station office at check-out. The cost to replace a missing parking pass is $100.</td></tr>
 <tr><td style="font-weight: bold;">PARKING ON THE STREET IS PROHIBITED THROUGHOUT INCLINE VILLAGE.</td></tr>
 {% endblock %}
 
 {% block D4 %}
+<tr><td>&nbsp;</td></tr>
 <tr><td style="font-weight: bold;">Parking Requirements</td></tr>
 <tr><td style="font-weight: bold;">PARKING ON THE STREET IS PROHIBITED THROUGHOUT INCLINE VILLAGE.</td></tr>
 <tr><td style="font-weight: bold;">PARK ONLY IN THE YELLOW LINE SPACES -- DO NOT PARK IN THE WHITE LINE SPACES</td></tr>
@@ -212,151 +224,180 @@
 {% endblock %}
 
 {% block E1 %}
+<tr><td>&nbsp;</td></tr>
 <tr><td style="font-weight: bold;">Garage Door Opener</td></tr>
 <tr><td>Your garage uses an automatic door opener. The remote was issued to you at check-in and must be returned to our office at check-out. There is a $75 charge to replace a missing garage door remote.</td></tr>
 {% endblock %}
 
 {% block E2 %}
+<tr><td>&nbsp;</td></tr>
 <tr><td style="font-weight: bold;">Garage Door Opener</td></tr>
 <tr><td>Your garage door must be opened manually. If needed, the key is included on the green tag key ring given to you at check-in.</td></tr>
 {% endblock %}
 
 {% block F1 %}
+<tr><td>&nbsp;</td></tr>
 <tr><td style="font-weight: bold;">Spa Key</td></tr>
 <tr><td>A special key is required to access the hot tub and sauna area. The key is issued to you at check-in and must be returned to our office at check-out. There is a $200 charge to replace a missing spa key.</td></tr>
 {% endblock %}
 
 {% block F2 %}
+<tr><td>&nbsp;</td></tr>
 <tr><td style="font-weight: bold;">Pool / Spa Key</td></tr>
 <tr><td>A special key is required to access the swimming pool and hot tub. The key is issued to you at check-in and must be returned to our office at check-out. There is a $200 charge to replace a missing pool / spa key.</td></tr>
 {% endblock %}
 
 {% block G1 %}
+<tr><td>&nbsp;</td></tr>
 <tr><td style="font-weight: bold;">House Rules</td></tr>
 <tr><td>Please read the Rules and Regulations posted in your particular home. They include no loud noises before 9 am or after 9 pm. Thank you in advance for being considerate of your neighbors.</td></tr>
 {% endblock %}
 
 {% block H1 %}
+<tr><td>&nbsp;</td></tr>
 <tr><td style="font-weight: bold;">Propane Barbecue Grill</td></tr>
 <tr><td>Your home has a propane barbecue grill. Do not use charcoal. Please let us know if the tank runs empty so that we can refill it for you. Please remember to shut off the gas when not in use. Also, please clean the grill before and after each use.</td></tr>
 {% endblock %}
 
 {% block H2 %}
+<tr><td>&nbsp;</td></tr>
 <tr><td style="font-weight: bold;">Charcoal Barbecue Grill</td></tr>
 <tr><td>Your home has a charcoal grill. We do not provide charcoal or starter fluid, but please feel free to use any that other guests may have left. Also, please remember to clean the grill before and after each use.</td></tr>
 {% endblock %}
 
 {% block H3 %}
+<tr><td>&nbsp;</td></tr>
 <tr><td style="font-weight: bold;">Electric Barbecue Grill</td></tr>
 <tr><td>Your home has an electric barbecue grill. Do not use charcoal or other fuel. Please remember to turn off the grill when not is use. Also, please remember to clean the grill before and after each use.</td></tr>
 {% endblock %}
 
 {% block H4 %}
+<tr><td>&nbsp;</td></tr>
 <tr><td style="font-weight: bold;">Barbecue</td></tr>
 <tr><td>Your home has a natural gas-fired barbecue. (It does not use a propane tank.) Do not use charcola or other fuel. You may need to turn on the gas valve before using the grill. Please call our office at 800-841-7443 if you might need assistance with the grill.</td></tr>
 {% endblock %}
 
 {% block H5 %}
+<tr><td>&nbsp;</td></tr>
 <tr><td style="font-weight: bold;">Charcoal Barbecue in Complex</td></tr>
 <tr><td>If you would like to barbecue, please feel free to use one of the charcoal grills located throughout the complex. Please clean the grill grate after each use - and be mindful of leaving hot coals unattended.</td></tr>
 {% endblock %}
 
 {% block I1 %}
+<tr><td>&nbsp;</td></tr>
 <tr><td style="font-weight: bold;">Gas Fireplace </td></tr>
 <tr><td>Your fireplace uses natural gas - do not burn wood, DuraFlame logs or other fuels. Please call our office at 775-831-3664 for assistance in operating the fireplace.</td></tr>
 {% endblock %}
 
 {% block I2 %}
+<tr><td>&nbsp;</td></tr>
 <tr><td style="font-weight: bold;">Wood Burning Fireplace </td></tr>
 <tr><td>Your fireplace can burn wood and DuraFlame logs. If you are unfamiliar with building and tending fire safely, please use a DuraFlame log instead. Follow the instructions on the DuraFlame package. Please be sure that the damper is open before lighting. Once the fire is completely out, please close the damper to conserve energy in the home.</td></tr>
 {% endblock %}
 
 {% block I3 %}
+<tr><td>&nbsp;</td></tr>
 <tr><td style="font-weight: bold;">Log Lighter Fireplace </td></tr>
 <tr><td>Your fireplace is equipped with a gas log lighter. After you have placed wood onto the grate, use the gas log lighter to ignite the wood. When the fire is burning well, turn off the gas log lighter to conserve energy. Do not use the log lighter alone or to ignite DuraFlame logs.</td></tr>
 {% endblock %}
 
 {% block I4 %}
+<tr><td>&nbsp;</td></tr>
 <tr><td style="font-weight: bold;">Pellet Stove </td></tr>
 <tr><td>Your home has a pellet stove. Do not burn wood or paper in this stove. The pellets are provided for your use. Please let us know if you need more pellets or assistance in operating the pellet stove.</td></tr>
 {% endblock %}
 
 {% block I5 %}
+<tr><td>&nbsp;</td></tr>
 <tr><td style="font-weight: bold;">Fireplace </td></tr>
 <tr><td>For safety reasons, DO NOT USE THE FIREPLACE.</td></tr>
 {% endblock %}
 
 {% block I6 %}
+<tr><td>&nbsp;</td></tr>
 <tr><td style="font-weight: bold;">Gas Fireplace </td></tr>
 <tr><td>Your fireplace uses natural gas - do not burn wood, DuraFlame logs or other fuels. Please call our office at 775-831-3664 for assistance in operating the fireplace. To operate the living room fireplace, use the remote control: 1. Scroll the set button until the screen reads MAN. 2. Press the Low Flame button until the screen reads LO. 3. Press and hold the OFF and Hi Flame buttons simultaneously until the fireplace beeps, then let go. 4. The fireplace will make a series of beeps, then the pilot will come on. 5. After 20 seconds, the flame will come on. 6. Set the remote to the desired room temperature. 7. The fireplace will turn off and on to maintain the set temperature in the room. When finished, please shut the remote OFF to conserve energy.</td></tr>
 {% endblock %}
 
 {% block I7 %}
+<tr><td>&nbsp;</td></tr>
 <tr><td style="font-weight: bold;">Gas Fireplace </td></tr>
 <tr><td>Your fireplace uses natural gas - do not burn wood, DuraFlame logs or other fuels. Please call our office at 775-831-3664 for assistance in operating the fireplace. To operate the living room fireplace, use the remote control to turn the fire on or off. If you do not see a blue pilot light behind the glass to the left-center, please call for assistance.</td></tr>
 {% endblock %}
 
 {% block J1 %}
+<tr><td>&nbsp;</td></tr>
 <tr><td style="font-weight: bold;">Trash Removal </td></tr>
 <tr><td>TRASH MAY NOT BE LEFT OUTDOORS. Animals will scatter the trash if left outdoors. You must place trash into the dumpsters at your condo complex. Remember to close and latch the lid securely. Do not leave trash or recyclables near the bins. If the bins are full or you need other assistance with proper trash disposal, please call us at 775-831-3664. Incline Village will assess a substantial fine for improper trash disposal.</td></tr>
 {% endblock %}
 
 {% block J2 %}
+<tr><td>&nbsp;</td></tr>
 <tr><td style="font-weight: bold;">Trash Removal </td></tr>
 <tr><td>TRASH MAY NOT BE LEFT OUTDOORS. Animals will scatter the trash if left outdoors. You must place trash into the bear box by the street. Remember to close and latch the bear box securely. Do not leave trash or recyclables outside the bear box. If the bear box is full or you need assistance with proper trash disposal, please call us at 775-831-3664. Incline Village will assess a substantial fine for improper trash disposal.</td></tr>
 {% endblock %}
 
 {% block J3 %}
+<tr><td>&nbsp;</td></tr>
 <tr><td style="font-weight: bold;">Trash Removal </td></tr>
 <tr><td>TRASH MAY NOT BE LEFT OUTDOORS. Animals will scatter the trash if left outdoors. Please store the trash in the cans in the garage. Remember to place lids on the cans. Incline Village will assess a substantial fine for improper trash disposal. Please call us at 775-831-3664 for assistance in disposing the trash.</td></tr>
 {% endblock %}
 
 {% block J4 %}
+<tr><td>&nbsp;</td></tr>
 <tr><td style="font-weight: bold;">Trash Removal </td></tr>
 <tr><td>TRASH MAY NOT BE LEFT OUTDOORS. Animals will scatter the trash if left outdoors. Please store the trash in covered containers in the outside closet. Remember to place lids on the cans. Incline Village will assess a substantial fine for improper trash disposal. Please call us at 775-831-3664 for assistance in disposing the trash.</td></tr>
 {% endblock %}
 
 {% block J5 %}
+<tr><td>&nbsp;</td></tr>
 <tr><td style="font-weight: bold;">Trash Removal </td></tr>
 <tr><td>TRASH MAY NOT BE LEFT OUTDOORS. Animals will scatter the trash if left outdoors. Please store the trash in covered containers in the kitchen. Remember to place the lids on the cans. Incline Village will assess a substantial fine for improper trash disposal. Please call us at 775-831-3664 for assistance in disposing the trash.</td></tr>
 {% endblock %}
 
 {% block J6 %}
+<tr><td>&nbsp;</td></tr>
 <tr><td style="font-weight: bold;">Trash Removal </td></tr>
 <tr><td>TRASH MAY NOT BE LEFT OUTDOORS. Animals will scatter the trash if left outdoors. You must place trash into the dumpsters at your condo complex. The dumpsters are located at the end of the street on Styria Way - refer to the map for the exact location. Remember to close and latch the dumspter lid securely. Do not leave trash or recyclables near the bins. If the bins are full or you need other assistance with proper trash disposal, please call us at 775-831-3664. Incline Village will assess a substantial fine for improper trash disposal.</td></tr>
 {% endblock %}
 
 {% block K1 %}
+<tr><td>&nbsp;</td></tr>
 <tr><td style="font-weight: bold;">Hot Tub </td></tr>
 <tr><td>The hot tub is available for your use. Do not use the hot tub if you are unable to use the hot tub safely. Please call the office with any questions about its operation. Remember that quiet hours are 9 pm to 9 am. Sound carries far, so please refrain from loud talking, laughter and other activity that will disturb the neighbors. The hot tub is regularly serviced (cleaned, refilled with fresh water, and chemically balanced). Do not use the hot tub if you have sensitivity to chlorine or other chemicals. If the water overflows due to the number of people in the tub, please refill the tub after use to its previous level to avoid the pump running dry. When not in use, please cover the tub to conserve energy and keep the water clean.</td></tr>
 {% endblock %}
 
 {% block K2 %}
+<tr><td>&nbsp;</td></tr>
 <tr><td style="font-weight: bold;">Hot Tub</td></tr>
 <tr><td>The hot tub is maintained and serviced by the homeowner's association, and may be closed without notice to us. Please let us know if you encounter any issues so that we may address these as possible.</td></tr>
 {% endblock %}
 
 {% block L1 %}
+<tr><td>&nbsp;</td></tr>
 <tr><td style="font-weight: bold;">Pet Friendly Home</td></tr>
 <tr><td>Please be responsible to dispose of any droppings left by your pet. Do not leave pets unattended. Barking or other noise will not be tolerated. Pets are not allowed on any furniture. Please vacuum the carpet to remove all pet hair before your departure. We may charge extra costs for any additional cleaning needed. Thank you for your considerations of others.</td></tr>
 {% endblock %}
 
 {% block L2 %}
+<tr><td>&nbsp;</td></tr>
 <tr><td style="font-weight: bold;">Pets Are Prohibited Due to Homeowner Rules and Regulations, NO PETS OF ANY TYPE ARE ALLOWED. </td></tr>
 <tr><td>If any member of your party or your guests allows any pet anywhere on the rental property at any time (however long or short): </td></tr>
-<tr><td>* Your entire party will be required to leave the property immediately. </td></tr>
-<tr><td>* You will forfeit your entire payment. </td></tr>
-<tr><td>* You will be charged all costs to repair any damage and to professionally clean, de-flea and deodorize the home, carpeting, upholstery and drapes. </td></tr>
-<tr><td>* You will be charged to clean any animal waste on the outside grounds. </td></tr>
-<tr><td>* You will not be allowed to return to any Vacation Station property. Please do not jeopardize your vacation - this pet policy is strictly enforced.</td></tr>
+<tr><td>&#9679; Your entire party will be required to leave the property immediately. </td></tr>
+<tr><td>&#9679; You will forfeit your entire payment. </td></tr>
+<tr><td>&#9679; You will be charged all costs to repair any damage and to professionally clean, de-flea and deodorize the home, carpeting, upholstery and drapes. </td></tr>
+<tr><td>&#9679; You will be charged to clean any animal waste on the outside grounds. </td></tr>
+<tr><td>&#9679; You will not be allowed to return to any Vacation Station property. Please do not jeopardize your vacation - this pet policy is strictly enforced.</td></tr>
 {% endblock %}
 
 {% block M1 %}
+<tr><td>&nbsp;</td></tr>
 <tr><td style="font-weight: bold;">Snow Removal </td></tr>
 <tr><td>Each property is on a snow removal route, which generally runs from the high elevation homes down to the lake. Vacation Station does not control the snow removal operators, and we are unable to alter their routes. We appreciate your patience. When you hear the plow truck, please move your vehicles from the driveway to facilitate snow removal. If you leave cars unattended in the driveway, the operator may skip your home, rather than risk damage to the property. If necessary, you will find a snow shovel in the property. Please do not remove the snow stakes or allow your children to play with them because these are required for the plow operator's safety.</td></tr>
 {% endblock %}
 
 {% block M2 %}
+<tr><td>&nbsp;</td></tr>
 <tr><td style="font-weight: bold;">Snow Removal</td></tr>
 <tr><td>Snow removal is handled by the homeowner's association. We do not control the snow removal operators, and we are unable to alter their routes. When you hear the plow truck, please be prepared to move your vehicles to facilitate snow removal. If you leave cars unattended in the driveway, the operator may skip your home, rather than risk damage to the property. If necessary, you will find a snow shovel in the property. Please do not remove the snow stakes or allow your children to play with them because these are required for the plow operator's safety.</td></tr>
 {% endblock %}

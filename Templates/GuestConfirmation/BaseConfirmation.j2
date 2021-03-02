@@ -1,30 +1,17 @@
-<link href="/Static/CSS/templateStyles.css" rel="stylesheet">
+<link href="E:\Pycharm Projects\VSI\VSI\Static\CSS\templateStyles.css" rel="stylesheet">
 
 <body>
-    <div id="greeting" class="body">
-        Thank you for choosing Vacation Station:
-        <br>
-        {{    resData['name']    }}
-        <br>
-    </div>
-
     <div id="main" class="body">
+        {% block Header %} {% endblock %}
         {% block GuestRegistration %} {% endblock %}
         {% if resData.booktype == 'CONF' %}
           {% block chargesPayments %} {% endblock %}
           {% block payInformation %} {% endblock %}
         {% endif %}
-        {% block guestInformation %} {% endblock %}
+
+        <table>
         {% for blockName in notificationInfo %}
-            {% if blockName.propertyNotificationCode == 'A1'%}
-              {% block A1 %} {% endblock %}
-            {% elif blockName.propertyNotificationCode == 'A2'%}
-              {% block A2 %} {% endblock %}
-            {% elif blockName.propertyNotificationCode == 'A3'%}
-              {% block A3 %} {% endblock %}
-            {% elif blockName.propertyNotificationCode == 'A4'%}
-              {% block A4 %} {% endblock %}
-            {% elif blockName.propertyNotificationCode == 'B1'%}
+            {% if blockName.propertyNotificationCode == 'B1'%}
               {% block B1 %} {% endblock %}
             {% elif blockName.propertyNotificationCode == 'B2'%}
               {% block B2 %} {% endblock %}
@@ -42,6 +29,14 @@
               {% block D3 %} {% endblock %}
             {% elif blockName.propertyNotificationCode == 'D4'%}
               {% block D4 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'A1'%}
+              {% block A1 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'A2'%}
+              {% block A2 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'A3'%}
+              {% block A3 %} {% endblock %}
+            {% elif blockName.propertyNotificationCode == 'A4'%}
+                {% block A4 %} {% endblock %}
             {% elif blockName.propertyNotificationCode == 'E1'%}
               {% block E1 %} {% endblock %}
             {% elif blockName.propertyNotificationCode == 'E2'%}
@@ -102,14 +97,7 @@
               {% block M2 %} {% endblock %}
             {% endif %}
         {% endfor %}
-    </div>
-
-    <div id="footer" class="body">
-        <br><br>
-        We hope you have a wonderful time. If you have any questions, please contact us at (775) 831-3664. Our email is Travel@VacationStation.com.
-        <br>
-        Thanks,
-        <br>
-        Vacation Station
+        {% block Footer %} {% endblock %}
+        </table>
     </div>
 </body>

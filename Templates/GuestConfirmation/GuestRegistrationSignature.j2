@@ -1,0 +1,64 @@
+{% extends "BaseConfirmationPDF.j2" %}
+
+{% block GuestRegistration %}
+<div id="GuestRegistration">
+ <br />
+
+ <table>
+ <tbody>
+ <tr>
+ <td></td><td style="font-weight:bold">Guest Registration</td>
+ </tr>
+ <tr>
+ <td>Guest: {{ resData['name'] }}</td><td>Reservation Number: {{ resData['quotenum'] }}</td>
+ </tr>
+ </tr>
+ <td>{{ resData['custAddress1'] }}</td><td style="background-color: #3283a1; font-weight: bold;">Arrival Date: {{ resData['startDate'] }} {{ resData['startDay'] }}</td>
+ </tr>
+ <tr>
+ <td>{{ resData['custCity'] }}, {{ resData['custState'] }} {{ resData['custZip'] }}</td><td style="background-color: #3283a1; font-weight: bold;">Departure Date: {{ resData['enddate'] }} {{ resData['endDay'] }}</td>
+ </tr>
+ <tr>
+ <td>Guest Phone: {{ resData['custPhone'] }}</td><td>Number of Nights: {{ resData['numofdays'] }}</td>
+ </tr>
+ <tr>
+ <td>Guest Email: {{ resData['custEmail'] }}</td><td>Maximum Occupancy: {{ resData['numofsleeps'] }}</td>
+ </tr>
+ <tr>
+ <td>Parking Limit: Parking for 2 Vehicles Only</td><td style="background-color: #3283a1; font-weight: bold;"> Property Address: {{ resData['address1'] }}</td>
+ </tr>
+ <tr>
+ <td>Today's Date: {{ resData['todayDate'] }}</td><td style="background-color: #3283a1; font-weight: bold;">Key Code: {{ resData['security'] }}</td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+{% endblock %}
+
+{% block GuestSignature %}
+ <table>
+ <tr>
+  <td colspan="2"> PROPERTY RULES: As renters, you assume all responsibility for any damage that occurs to the property and adjacent areas as a result of your rental. You agree as follows: </td>
+ </tr>
+ <tr><td> NO PETS ARE ALLOWED</td><td style="text-align: left; background-color: #3283a1; white-space:pre; vertical-align: text-top; ">[    ] INITIAL </td></tr>
+ <tr><td> TRASH must be disposed properly per the enclosed instructions.</td><td style="text-align: left; background-color: #3283a1; white-space:pre; vertical-align: text-top; ">[    ] INITIAL </td></tr>
+ <tr><td> QUIET HOURS are after 9:00 pm and before 11:00 am.</td><td style="text-align: left; background-color: #3283a1; white-space:pre; vertical-align: text-top; ">[    ] INITIAL </td></tr>
+ <tr><td> NUMBER OF PERSONS present on the premises at any time must not exceed {{    resData['numofsleeps']    }}.</td><td style="text-align: left; background-color: #3283a1; white-space:pre; vertical-align: text-top; ">[    ] INITIAL </td></tr>
+ <tr><td> NO SMOKING of any nature is allowed inside or outside the unit.</td><td style="text-align: left; background-color: #3283a1; white-space:pre; vertical-align: text-top; ">[    ] INITIAL </td></tr>
+ <tr><td> PLEASE REMOVE YOUR SHOES and treat carpets with care.</td><td style="text-align: left; background-color: #3283a1; white-space:pre; vertical-align: text-top; ">[    ] INITIAL </td></tr>
+ <tr><td> SAFETY PRACTICES: Your group must follow our recommended Safety Practices, including wearing a mask, maintaining 6 feet social distance, frequent hand washing, and not travelling when ill or have concern about possible infection. Parties and events are prohibited. If any member of your group fails to comply with these safety practices, your stay will be cancelled without refund.</td><td style="text-align: left; background-color: #3283a1; white-space:pre; vertical-align: text-top; ">[    ] INITIAL </td></tr>
+ <tr><td> CLEANING: We use experienced housekeepers to clean this property. We do not sanitize to medical-grade standards. You may notice residue from disinfectant spray on some surfaces. If you find items needing additional cleaning, please let us know immediately so that we can correct the issue.</td><td style="text-align: left; background-color: #3283a1; white-space:pre; vertical-align: text-top; ">[    ] INITIAL </td></tr>
+ <tr><td colspan="2"> PLEASE REPORT ANY DAMAGE OR NEEDED REPAIRS SO THAT WE CAN KEEP THE UNIT IN GOOD CONDITION.</td></tr>
+ <tr><td> Guest was issued: {% for securityItem in securityInfo %} {{    securityItem['countItem']    }} {{    securityItem['securityTypeDescription']    }} {% endfor %}</td><td style="text-align: left; background-color: #3283a1; white-space:pre; vertical-align: text-top; ">[    ] INITIAL </td></tr>
+ <tr><td></td></tr>
+ <tr><td colspan="2"> YOUR PAYMENTS ARE NON-REFUNDABLE. BY SIGNING, YOU ACKNOWLEDGE THAT YOU HAVE READ, UNDERSTAND AND AGREE TO THE ABOVE DESCRIBED TERMS, CONDITIONS AND CHARGES.</td></tr>
+ <tr><td><br></td></tr>
+ <tr><td colspan="2" style="text-align: left; background-color: #3283a1;"> X __________________________________ SIGNATURE ({{ resData['todayDate'] }}) </td></tr>
+ <tr><td colspan="2">VACATION STATION, Inc.</td></tr>
+ <tr><td colspan="2">930 Tahoe Boulevard, Suite 703</td></tr>
+ <tr><td colspan="2">Incline Village, NV 89451</td></tr>
+ <tr><td colspan="2">http://vacationstation.com</td></tr>
+ <tr><td colspan="2">(775) 831-3664</td></tr>
+ <tr><td colspan="2">travel@vacationstation.com</td></tr>
+ </table>
+{% endblock %}
